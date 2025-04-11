@@ -4,22 +4,25 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "concurrently \"vite\" \"node server/index.js\"",
+    "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "server": "node --experimental-json-modules server.js",
+    "start": "NODE_ENV=production node server.production.js"
   },
   "dependencies": {
-    "concurrently": "^9.1.2",
-    "cors": "^2.8.5",
-    "dotenv": "^16.4.7",
-    "express": "^4.21.2",
     "lucide-react": "^0.344.0",
-    "nodemailer": "^6.10.0",
     "react": "^18.3.1",
-    "react-adsense": "^0.1.0",
     "react-dom": "^18.3.1",
-    "react-router-dom": "^6.22.3"
+    "react-router-dom": "^6.22.3",
+    "express": "^4.18.3",
+    "nodemailer": "^6.9.12",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "pm2": "^5.3.1",
+    "compression": "^1.7.4",
+    "helmet": "^7.1.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.1",
