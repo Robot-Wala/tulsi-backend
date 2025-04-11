@@ -11,7 +11,13 @@ const __dirname = dirname(__filename);
 dotenv.config();
 
 const app = express();
-app.use(cors());
+
+// ✅ Secure CORS config to allow only your frontend domain
+app.use(cors({
+  origin: process.env.FRONTEND_URL,
+  methods: ['GET', 'POST'],
+}));
+
 app.use(express.json());
 
 // Create Nodemailer transporter with explicit SMTP configuration
