@@ -12,14 +12,15 @@ dotenv.config();
 
 const app = express();
 
-// ✅ Secure CORS config to allow only your frontend domain
+// --- CORS Configuration ---
+const allowedOrigins = ['https://tulsitraditional.in']; // Replace with your real frontend domain
 app.use(cors({
-  origin: process.env.FRONTEND_URL,
+  origin: allowedOrigins,
   methods: ['GET', 'POST'],
+  credentials: true
 }));
 
 app.use(express.json());
-
 // Create Nodemailer transporter with explicit SMTP configuration
 const transporter = nodemailer.createTransport({
   service: 'gmail',
