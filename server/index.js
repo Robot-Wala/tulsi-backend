@@ -13,7 +13,7 @@ dotenv.config();
 const app = express();
 
 // --- CORS Configuration ---
-const allowedOrigins = ['https://tulsitraditional.in']; // Replace with your real frontend domain
+const allowedOrigins = ['https://tulsitraditional.in']; // Your actual frontend domain (NO trailing slash)
 app.use(cors({
   origin: allowedOrigins,
   methods: ['GET', 'POST'],
@@ -21,6 +21,7 @@ app.use(cors({
 }));
 
 app.use(express.json());
+
 // Create Nodemailer transporter with explicit SMTP configuration
 const transporter = nodemailer.createTransport({
   service: 'gmail',
@@ -105,7 +106,7 @@ app.post('/api/send-order-confirmation', async (req, res) => {
   }
 });
 
-const PORT = process.env.PORT || 10000;
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
   console.log(`Email configuration: Using ${process.env.EMAIL_USER}`);
